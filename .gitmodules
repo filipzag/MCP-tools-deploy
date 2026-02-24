@@ -1,0 +1,12 @@
+[submodule "elastic-security"]
+	path = elastic-security
+	url = git@github.com:filipzag/elastic-security-MCP.git
+[submodule "mcp-proxy"]
+	path = mcp-proxy
+	url = git@github.com:filipzag/MCP-proxy.git
+[submodule "mitre-attack"]
+	path = mitre-attack
+	url = https://github.com/MHaggis/mitre-attack-mcp
+[submodule "security-detections"]
+	path = security-detections
+	url = https://github.com/MHaggis/Security-Detections-MCP
