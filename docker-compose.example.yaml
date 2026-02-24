@@ -1,0 +1,57 @@
+services:
+  security-detections:
+    build:
+      context: ./security-detections
+      dockerfile: ../SecurityDetectionsProxy.Dockerfile
+      additional_contexts:
+        proxy: ./mcp-proxy
+    ports:
+      - "3002:8000"
+    environment:
+      - MCP_PORT=8000
+      # Reference the value from your local .env file
+      - MCP_AUTH_TOKEN=${SECURITY_DETECTIONS_AUTH_TOKEN}
+      # Placeholder paths - User needs to update these
+      # - SIGMA_PATHS=/path/to/sigma/rules
+      # - SPLUNK_PATHS=/path/to/splunk/detections
+      # - ELASTIC_PATHS=/path/to/elastic/rules
+    volumes:
+       # Mount points for rules if needed
+       - /path/to/local/detections:/detections:ro
+
+  elastic-security:
+    build:
+      context: ./elastic-security
+    ports:
+      - "8000:8000"
+    environment:
+      # Pass these in via your .env file
+      - KIBANA_URL=${KIBANA_URL}
+      - ELASTIC_API_KEY=${ELASTIC_API_KEY}
+      - MCP_AUTH_TOKEN=${ELASTIC_SECURITY_AUTH_TOKEN}
+    command: ["--transport", "streamable-http", "--port", "8000", "--host", "0.0.0.0"]
+
+  atomic-red-team:
+    build:
+      context: ./atomic-red-team
+    ports:
+      - "8005:8000"
+    environment:
+      - ART_MCP_TRANSPORT=streamable-http
+      - ART_MCP_PORT=8000
+      # Reference the value from your local .env file
+      - ART_AUTH_TOKEN=${ATOMIC_RED_TEAM_AUTH_TOKEN}
+      # - ART_EXECUTION_ENABLED=true # uncomment to enable execution
+
+  mitre-attack:
+    build:
+      context: ./mitre-attack
+      dockerfile: ../MitreAttackProxy.Dockerfile
+      additional_contexts:
+        proxy: ./mcp-proxy
+    ports:
+      - "8004:8000"
+    environment:
+      - MCP_PORT=8000
+      # Reference the value from your local .env file
+      - MCP_AUTH_TOKEN=${MITRE_ATTACK_AUTH_TOKEN}
