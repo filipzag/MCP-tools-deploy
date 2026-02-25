@@ -11,13 +11,7 @@ services:
       - MCP_PORT=8000
       # Reference the value from your local .env file
       - MCP_AUTH_TOKEN=${SECURITY_DETECTIONS_AUTH_TOKEN}
-      # Placeholder paths - User needs to update these
-      # - SIGMA_PATHS=/path/to/sigma/rules
-      # - SPLUNK_PATHS=/path/to/splunk/detections
-      # - ELASTIC_PATHS=/path/to/elastic/rules
-    volumes:
-       # Mount points for rules if needed
-       - /path/to/local/detections:/detections:ro
+    # Rules are now downloaded automatically during the Docker build process!
 
   elastic-security:
     build:
