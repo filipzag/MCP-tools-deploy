@@ -46,7 +46,12 @@ Example snippet from `.env`:
 SECURITY_DETECTIONS_AUTH_TOKEN=your-random-secure-string-1
 MITRE_ATTACK_AUTH_TOKEN=your-random-secure-string-2
 ATOMIC_RED_TEAM_AUTH_TOKEN=your-random-secure-string-3
+ART_GITHUB_REPO=your-github-username/atomic-red-team
 ```
+
+> [!NOTE]
+> **Atomic Red Team Forking:** If you want to push and merge new tests using the Atomic Red Team MCP, you must fork the `redcanaryco/atomic-red-team` repository, and provide your fork as the `ART_GITHUB_REPO` environment variable (e.g., `your-username/atomic-red-team`).
+
 *Note: You must also configure `docker-compose.yaml` with your `KIBANA_URL` and `ELASTIC_API_KEY` to use the Elastic Security MCP.*
 
 ### 3. Build and Run the Containers

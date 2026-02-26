@@ -35,6 +35,7 @@ services:
       - ART_MCP_PORT=8000
       # Reference the value from your local .env file
       - ART_AUTH_TOKEN=${ATOMIC_RED_TEAM_AUTH_TOKEN}
+      - ART_GITHUB_REPO=${ART_GITHUB_REPO}
       # - ART_EXECUTION_ENABLED=true # uncomment to enable execution
 
   mitre-attack:
