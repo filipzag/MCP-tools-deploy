@@ -47,6 +47,7 @@ SECURITY_DETECTIONS_AUTH_TOKEN=your-random-secure-string-1
 MITRE_ATTACK_AUTH_TOKEN=your-random-secure-string-2
 ATOMIC_RED_TEAM_AUTH_TOKEN=your-random-secure-string-3
 ART_GITHUB_REPO=your-github-username/atomic-red-team
+ART_GITHUB_USER=your-github-username
 ```
 
 > [!NOTE]

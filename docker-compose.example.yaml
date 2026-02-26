@@ -36,6 +36,7 @@ services:
       # Reference the value from your local .env file
       - ART_AUTH_TOKEN=${ATOMIC_RED_TEAM_AUTH_TOKEN}
       - ART_GITHUB_REPO=${ART_GITHUB_REPO}
+      - ART_GITHUB_USER=${ART_GITHUB_USER}
       # - ART_EXECUTION_ENABLED=true # uncomment to enable execution
 
   mitre-attack:
