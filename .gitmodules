@@ -10,3 +10,6 @@
 [submodule "security-detections"]
 	path = security-detections
 	url = git@github.com:filipzag/Security-Detections-MCP.git
+[submodule "atomic-red-team"]
+	path = atomic-red-team
+	url = https://github.com/filipzag/atomic-red-team-mcp
