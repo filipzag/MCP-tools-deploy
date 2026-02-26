@@ -9,4 +9,4 @@
 	url = https://github.com/MHaggis/mitre-attack-mcp
 [submodule "security-detections"]
 	path = security-detections
-	url = https://github.com/MHaggis/Security-Detections-MCP
+	url = git@github.com:filipzag/Security-Detections-MCP.git
